@@ -1,0 +1,27 @@
+<%= javascript_include_tag "application" %>
+
+<h1> Listing rooms </h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Имя</th>
+    <th>Описание</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rooms.each do |room| %>
+  <tr>
+    <td><%= room.title %></td>
+    <td><%= room.description %></td>
+    <td><%= link_to 'Показать', room %></td>
+    <td><%= link_to 'Редактировать', edit_room_path(room) %></td>
+    <td><%= link_to 'Удалить', room, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Room', new_room_path %>
