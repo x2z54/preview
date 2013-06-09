@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+#gem 'mysql2'
 
 
 # Gems used only for assets and not required
@@ -20,9 +20,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development, :test do
+  gem 'sqlite3'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'pry-rails'
+end
+
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'google-api-client'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
