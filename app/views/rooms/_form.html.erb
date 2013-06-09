@@ -2,6 +2,7 @@
 
 
   <div>
+
     <p>Название</p>
     <%= f.text_field :title %>
   </div>
@@ -12,5 +13,6 @@
   <div>
    <%= f.submit 'Сохранить', :class => "btn btn-success" %>
    <%= link_to 'Назад', rooms_path, :class => "btn btn-danger", :style=>"margin-left:5%" %>
+
   </div>
 <% end %>

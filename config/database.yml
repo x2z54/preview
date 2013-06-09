@@ -32,6 +32,7 @@
 #   password:
 #   socket: /var/run/mysqld/mysqld.sock
 
+
 production:
    adapter: mysql2
    encoding: utf8
@@ -41,6 +42,18 @@ production:
    username: root
    password:
    socket: /var/run/mysqld/mysqld.sock
+
+
+# production:
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: omni_production
+#   pool: 5
+#   username: root
+#   password:
+#   socket: /var/run/mysqld/mysqld.sock
 
 # SQLite version 3.x
 #   gem install sqlite3
@@ -60,5 +73,4 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-
 

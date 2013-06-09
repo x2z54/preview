@@ -1,7 +1,9 @@
+
 <div class="container">
 <%= render "layouts/nav_user" %>
 <h1>Список документов</h1>
 <table class="table table-bordered">
+
   <tr>
     <th>Name</th>
     <th>Link</th>
@@ -16,10 +18,10 @@
     <td><%= link_to document.link, document.link %></td>
     <td><%= link_to 'Show', document %></td>
     <td><%= link_to 'Destroy', [@room,document], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
   </tr>
 <% end %>
 </table>
 
 <br />
-
 

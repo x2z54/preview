@@ -26,10 +26,12 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+
 group :production do
   gem 'mysql2'
   gem 'pry-rails'
 end
+
 
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
