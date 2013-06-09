@@ -1,0 +1,33 @@
+<div class="container" style="margin-top:0;padding-top:0">
+<%= render "layouts/nav_user" %>
+
+   <div class="span3">
+      <h4><%= @room.title %> <small>(<%= link_to 'Редактировать', edit_room_path(@room) %>)</small></h4>
+      <hr>
+    </div>
+
+    <div class="span11">
+      <object type="application/x-shockwave-flash" height="378" width="620" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=notlikeall" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=notlikeall&auto_play=true&start_volume=25" /></object>
+      <hr>
+    </div>
+
+    <div class="span5">
+      <%= link_to "Добавить файл", new_room_document_path(@room), :class => "btn btn-success" %>
+      <button class="btn btn-primary" type="button" style="float:right">Запустить трансляцию</button>
+      <hr>
+    </div>
+
+    <div class="span11" style="margin-top:0;padding-top:0">
+      <H5>Файлы</H5>
+          <div class="row-fluid">
+
+            <ul class="thumbnails">
+            <% @room.documents.each do |document| %>
+              <%= render "files", :document => document %>
+            <% end %>
+            </ul>
+
+          </div>  
+    </div>
+
+</div>

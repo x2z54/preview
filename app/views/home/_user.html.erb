@@ -1,0 +1,24 @@
+  <div class="container">
+
+<%= render "layouts/nav_user" %>
+
+    <div class="span3">
+      <h5>Здравствуйте, <%= current_user.name %></h5>
+      <hr>
+    </div>
+
+    <div class="span11">
+      <h3>Список комнат</h3>
+      <div class="row-fluid">
+            <ul class="thumbnails">
+              <% @rooms.each do |room| %>
+              <%= render "rooms", :room => room %>
+              <% end %>
+            </ul>
+      </div>
+      <hr>
+      <%= link_to 'Новая комната', new_room_path, :class=>"btn btn-primary" %>
+    </div>
+
+
+    </div> <!-- /container -->
