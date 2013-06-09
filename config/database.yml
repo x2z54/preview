@@ -34,15 +34,15 @@
 
 
 production:
-   adapter: mysql2
-   encoding: utf8
-   reconnect: false
-   database: omni_production
-   pool: 5
-   username: root
-   password:
-   socket: /var/run/mysqld/mysqld.sock
-
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: x2z54_webinar91
+  pool: 5
+  host: mysql5.locum.ru
+  username: x2z54_webinar91
+  password: gn3a5NN22i
+  socket: /var/run/mysqld/mysqld.sock
 
 # production:
 # development:
