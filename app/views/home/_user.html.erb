@@ -12,13 +12,13 @@
       <div class="row-fluid">
             <ul class="thumbnails">
               <% @rooms.each do |room| %>
-              <%= render "rooms", :room => room %>
+              <%= render "rooms", room: room %>
               <% end %>
             </ul>
       </div>
 
       <hr>
-      <%= link_to 'Новая комната', new_room_path, :class=>"btn btn-primary" %>
+      <%= link_to 'Новая комната', new_room_path, class: "btn btn-primary" %>
 
 
     </div>
