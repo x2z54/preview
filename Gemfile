@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
@@ -11,6 +12,9 @@ gem 'capistrano'
 gem 'unicorn'
 gem 'execjs'
 gem 'therubyracer'
+gem 'thin'
+gem 'faye-rails'
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,7 +39,6 @@ group :production do
   gem 'mysql2'
   gem 'pry-rails'
 end
-
 
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'

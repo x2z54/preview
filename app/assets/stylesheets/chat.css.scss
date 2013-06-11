@@ -1,0 +1,46 @@
+// Place all the styles related to the Chat controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chatroom {
+  margin: auto auto;
+  width: 70%;
+  ul#chat {
+    list-style: none;
+    padding: 0;
+    width: auto;
+    height: 500px;
+    border: groove 1px rgba(0,0,0, 0.1);
+    margin: 15px 0;
+    overflow: auto;
+    border-radius:  5px;
+    background: #FCFCFC;
+    li {
+      margin: 0px 0px 0px 0px;
+      padding: 3px;
+      padding-left: 5px;
+      min-height: 22px;
+      &:nth-child(odd) {
+        background: rgba(200, 50, 50, 0.015);
+      }
+      &:nth-child(even) {
+        background: rgba(50, 50, 200, 0.015);
+      }
+      &:hover {
+        background: rgba(0,0,0, 0.04);
+      }
+      .created_at {
+        float: right;
+        color: #777;
+        font-size: 10px;
+        padding-right: 5px;
+        padding-top: 0px;
+      }
+    }
+  }
+  .msgfield {
+    width: 100%;
+    text-align: center;
+  }
+}
+
