@@ -9,13 +9,14 @@
     <meta name="author" content="Andrey Noscov">
 
     <!-- Le styles -->
-  <%= stylesheet_link_tag    "bootstrap.css" %>
+  <%= stylesheet_link_tag "bootstrap.css" %>
+  <%= stylesheet_link_tag 'chat' %>
 
     <style type="text/css">
 
 
      body {
-      background-image: url(<%= asset_path("cream_pixels.png")%>) 
+      background-image: url(<%= asset_path("cream_pixels.png")%>)
     }
 
 
@@ -95,8 +96,6 @@
 
     <!-- Скрипты, не трогать
 ================================================== -->
-<%= javascript_include_tag "jquery" %>
-<%= javascript_include_tag "holder" %>
 <%= javascript_include_tag "application" %>
 
 </body>
