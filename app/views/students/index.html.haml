@@ -1,0 +1,31 @@
+.container
+  = render "layouts/nav_user"
+  %h2 Список студентов
+  .btn-group
+    = link_to "Комнаты", rooms_path, class: 'btn'
+    = link_to "Файлы", documents_path, class: 'btn'
+    = link_to "Студенты", students_path, class: 'btn'
+    = link_to "На главную", admins_path, class: 'btn'
+  %hr
+  = form_tag students_path, :method => 'get', :id => "students_search", class: 'form-search' do
+    = text_field_tag :search, params[:search], class: "input-medium search-query"
+    = submit_tag "Поиск", email: nil, class: "btn"
+
+  %br
+
+    %table.table.table-bordered
+      %tr
+        %th Email
+        %th
+        %th
+
+        - @students.each do |student|
+          %tr
+            %td= student.email
+            %td= link_to 'Редактировать', edit_student_path(student)
+            %td= link_to 'Удалить', student, :method => :delete, data: { confirm: 'Вы уверены?' }
+
+  = will_paginate @students, renderer: BootstrapPagination::Rails
+  = link_to 'Добавить студента', new_student_path, class: "btn btn-primary"
+
+

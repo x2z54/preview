@@ -1,0 +1,19 @@
+= form_for([@room, @room.documents.build]) do |f|
+  - if @document.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@document.errors.count, "error")
+        prohibited this document from being saved:
+      %ul
+        - @document.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    %p Имя
+    = f.text_field :name
+  .field
+    %p Ссылка
+    = f.file_field :link
+    .actions
+      %br/
+      = f.submit 'Сохранить', :class => "btn btn-success"
+      = link_to 'Назад', :back, :class => "btn btn-danger", :style=>"margin-left:5%"

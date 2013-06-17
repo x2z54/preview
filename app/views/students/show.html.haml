@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @student.email
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path

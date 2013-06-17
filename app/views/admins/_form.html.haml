@@ -1,0 +1,11 @@
+= form_for @admin do |f|
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    %p Пароль
+    = f.text_field :password
+  .actions
+    %br
+    = f.submit 'Сохранить', class: 'btn btn-success'
+    = link_to 'Назад', :back , class: "btn btn-danger", style: "margin-left:5%"

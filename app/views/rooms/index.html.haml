@@ -1,0 +1,25 @@
+.container
+  = render "layouts/nav_user"
+  %h2 Список комнат
+  .btn-group
+    = link_to "Комнаты", rooms_path, class: 'btn'
+    = link_to "Файлы", documents_path, class: 'btn'
+    = link_to "Студенты", students_path, class: 'btn'
+    = link_to "На главную", admins_path, class: 'btn'
+  %hr
+    %table.table.table-bordered
+      %tr
+        %th Имя
+        %th Описание
+        %th
+        %th
+        %th
+      - @rooms.each do |room|
+        %tr
+          %td= room.title
+          %td= room.description
+          %td= link_to 'Показать', room
+          %td= link_to 'Редактировать', edit_room_path(room)
+          %td= link_to 'Удалить', room, method: :delete, data: { confirm: 'Вы уверены?' }
+    %br
+      = link_to 'Новая комната', new_room_path, class: "btn btn-primary"

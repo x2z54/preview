@@ -1,0 +1,12 @@
+.container
+  .chatroom
+    %ul#chat
+      - @chat_messages.each do |chat_message|
+        %li
+          %span.created_at
+            = chat_message.created_at.strftime('%H:%M:%S')
+          = chat_message.message
+
+    .input-append.msgfield
+      %input#appendedInputButton.span7.chatmsg{type: 'text', name: 'message'}
+      %button.chatpost.btn.btn-primary Send

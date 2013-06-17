@@ -1,0 +1,6 @@
+- current_page = new_room_path
+.container
+  = render "layouts/nav_user"
+  %h2 Новая комната
+  %hr
+    = render 'form', current_page: current_page

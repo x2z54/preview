@@ -1,0 +1,45 @@
+.container{style: "margin-top:0;padding-top:0"}
+  = render "layouts/nav_user"
+  .span12
+    %h4
+      = @room.title
+      %small
+        (#{link_to 'Редактировать', edit_room_path(@room)})
+    %hr
+  .container
+    .span12
+      .row
+        .span7{style: 'float:left;' }
+          - if @room.ustream_id
+            %iframe{src: "http://www.ustream.tv/embed/#{@room.ustream_id}", style: "width:100%;height:520px"}
+
+        .span5{style: 'float:right;'  'margin:0;' 'word-break: break-all;'}
+          .chatroom{'data-chat_id' => @room.id}
+            %ul#chat
+              - @chat_messages.each do |chat_message|
+                %li
+                  %span.created_at
+                    = chat_message.created_at.strftime('%H:%M:%S')
+                  = chat_message.name + ':'
+                  = chat_message.message
+
+            .input-append.msgfield
+              %input#appendedInputButton.span3.chatmsg{type: 'text', name: 'message'}
+              %button.chatpost.btn.btn-primary Отправить
+
+
+  .span5
+    - if is_admin
+      %hr
+      = link_to "Добавить файл", new_room_document_path(@room), class: "btn btn-success"
+      %button.btn.btn-primary{style: "float:right", type: "button"} Запустить трансляцию
+    %hr
+    .span11
+      %H5 Файлы
+      .row-fluid
+        %ul.thumbnails
+          - @room.documents.each do |document|
+            = render "files", document: document
+
+= javascript_tag do
+  name = '#{@user.name}';

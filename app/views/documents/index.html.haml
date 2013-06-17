@@ -1,0 +1,23 @@
+.container
+  = render "layouts/nav_user"
+  %h2 Список документов
+  .btn-group
+    = link_to "Комнаты", rooms_path, class: 'btn'
+    = link_to "Файлы", documents_path, class: 'btn'
+    = link_to "Студенты", students_path, class: 'btn'
+    = link_to "На главную", admins_path, class: 'btn'
+  %hr 
+  %table.table.table-bordered
+    %tr
+      %th Имя
+      %th Ссылка
+      %th
+      %th
+      %th
+    - @documents.each do |document|
+      %tr
+        %td= document.name
+        %td= link_to document.link, document.link
+        %td= link_to 'Show', document
+        %td= link_to 'Destroy', [@room,document], method: :delete, data: { confirm: 'Are you sure?' }
+  %br/

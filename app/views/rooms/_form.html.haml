@@ -1,0 +1,47 @@
+.span4
+  = form_for @room do |f|
+    %div
+      %p Название
+      = f.text_field :title
+    %div
+      %p ID трансляции
+      = f.text_field :ustream_id
+    %div
+      %p Описание
+      = f.text_area :description, size: "10x5"
+    %div
+      = f.submit 'Сохранить', class: "btn btn-success"
+      = link_to 'Назад', :back , class: "btn btn-danger", style: "margin-left:5%"
+
+
+.span6
+  %p Список студентов
+  = form_tag current_page, :method => 'get', :id => "students_search", class: 'form-search' do
+    = text_field_tag :search, params[:search], class: "input-medium search-query"
+    = submit_tag "Поиск", email: nil, class: "btn"
+    .li.dropdown{style: 'float:right'}
+      %a#drop4.dropdown-toggle.btn{"data-toggle" => "dropdown", href: "#", role: 'button'}
+        Всего в комнате: #{@room.students.count}
+        %b.caret
+      %ul#menu1.dropdown-menu{"aria-labelledby" => "drop4", role: 'menu'}
+        - @room.students.each do |student|
+          %li{role: "presentation"}
+            = link_to student.email,remove_access_path(room_id: @room.id, student_id: student.id), "data-toggle" => "tooltip",title: "Нажмите, чтобы запретить доступ"
+
+
+  %br
+
+    %table.table.table-bordered
+      %tr
+        %th Email
+        %th
+
+
+        - @students.each do |student|
+          %tr
+            %td= student.email
+            %td= link_to 'Разрешить',access_path(room_id: @room.id, student_id: student.id)
+
+
+  = will_paginate @students, renderer: BootstrapPagination::Rails
+

@@ -1,0 +1,32 @@
+.container
+  = render "layouts/nav_user"
+  %h2 Панель управления
+
+  .btn-group
+    = link_to "Комнаты", rooms_path, class: 'btn'
+    = link_to "Файлы", documents_path, class: 'btn'
+    = link_to "Студенты", students_path, class: 'btn'
+    = link_to "На главную", admins_path, class: 'btn'
+
+  %hr
+  = form_tag admins_path, :method => 'get', :id => "students_search", class: 'form-search' do
+    = text_field_tag :search, params[:search], class: "input-medium search-query"
+    = submit_tag "Поиск", email: nil, class: "btn"
+
+  %br
+
+    %table.table.table-bordered
+      %tr
+        %th Email
+        %th
+        %th
+
+        - @admins.each do |admin|
+          %tr
+            %td= admin.email
+            %td= link_to 'Редактировать', edit_admin_path(admin)
+            %td= link_to 'Удалить', admin, method: :delete, data: { confirm: 'Вы уверены?' }
+
+  = will_paginate @admins, renderer: BootstrapPagination::Rails
+  = link_to 'Добавить администратора', new_admin_path, class: "btn btn-primary"
+

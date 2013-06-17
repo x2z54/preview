@@ -1,0 +1,9 @@
+%li.span4
+  .thumbnail
+    %img{:alt => "", "data-src" => ""}
+      .caption
+        %h3= room.title
+        %p= room.description
+        %p= link_to "Войти", room, class: "btn btn-primary"
+        -if flash[:alert]
+          .notice= flash[:alert]
