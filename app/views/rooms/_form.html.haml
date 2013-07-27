@@ -1,4 +1,4 @@
-.span4
+.col-lg-4
   = form_for @room do |f|
     %div
       %p Название
@@ -8,13 +8,14 @@
       = f.text_field :ustream_id
     %div
       %p Описание
-      = f.text_area :description, size: "10x5"
+      = f.text_area :description, size: "20x5"
     %div
+    %br
       = f.submit 'Сохранить', class: "btn btn-success"
       = link_to 'Назад', :back , class: "btn btn-danger", style: "margin-left:5%"
 
 
-.span6
+.col-lg-6
   %p Список студентов
   = form_tag current_page, :method => 'get', :id => "students_search", class: 'form-search' do
     = text_field_tag :search, params[:search], class: "input-medium search-query"

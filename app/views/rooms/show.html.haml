@@ -1,19 +1,19 @@
 .container{style: "margin-top:0;padding-top:0"}
   = render "layouts/nav_user"
-  .span12
+  .col-lg-12
     %h4
       = @room.title
       %small
         (#{link_to 'Редактировать', edit_room_path(@room)})
     %hr
   .container
-    .span12
+    .col-lg-12
       .row
-        .span7{style: 'float:left;' }
+        .col-lg-7{style: 'float:left;' }
           - if @room.ustream_id
             %iframe{src: "http://www.ustream.tv/embed/#{@room.ustream_id}", style: "width:100%;height:520px"}
 
-        .span5{style: 'float:right;'  'margin:0;' 'word-break: break-all;'}
+        .col-lg-5{style: 'float:right;'  'margin:0;' 'word-break: break-all;'}
           .chatroom{'data-chat_id' => @room.id}
             %ul#chat
               - @chat_messages.each do |chat_message|
@@ -28,13 +28,13 @@
               %button.chatpost.btn.btn-primary Отправить
 
 
-  .span5
+  .col-lg-5
     - if is_admin
       %hr
       = link_to "Добавить файл", new_room_document_path(@room), class: "btn btn-success"
       %button.btn.btn-primary{style: "float:right", type: "button"} Запустить трансляцию
     %hr
-    .span11
+    .col-lg-11
       %H5 Файлы
       .row-fluid
         %ul.thumbnails

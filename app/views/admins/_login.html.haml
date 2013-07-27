@@ -1,17 +1,18 @@
 .container
   = render "layouts/nav_user"
-  .span11
+  .col-lg-11
     %hr
       .row
-        .span6
+        .col-lg-6
           = image_tag "admin.jpg"
-        .span3{style: "margin-left:5%"}
+        .col-lg-3{style: "margin-left:5%"}
           %h4 Панель управления сайтом
           = form_tag auth_path do
             %hr
               = text_field_tag :email, params[:email],placeholder: "Ваша электронная почта"
               %br
+              %br
                 = password_field_tag :password_digest, params[:password_digest],placeholder: "Пароль"
-                %div{style: "float:right;margin-top:4%"}
+                %div{style: "margin-top:6%"}
                   = submit_tag "Войти", :class => "btn btn-primary"
       %hr
