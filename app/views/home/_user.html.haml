@@ -1,19 +1,18 @@
 .container
   = render "layouts/nav_user"
-  .col-lg-3
+  .span3
     %h5
       Здравствуйте, #{current_user.name}
       -if flash[:alert]
         .alert-danger{style: "margin-top:2%"}
           .notice= flash[:alert]
     %hr
-  .row
-    .col-lg-10
-      %h3 Список комнат
-      .row-fluid
-        %ul.thumbnails
-          - @rooms.each do |room|
-            = render "rooms", room: room
-  %hr
-    = link_to 'Новая комната', new_room_path, class: "btn btn-primary", style: "margin-left:4.5%"
+  .span11
+    %h3 Список комнат
+    .row-fluid
+      %ul.thumbnails
+        - @rooms.each do |room|
+          = render "rooms", room: room
+    %hr
+      = link_to 'Новая комната', new_room_path, class: "btn btn-primary"
 / /container

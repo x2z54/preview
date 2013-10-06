@@ -1,11 +1,11 @@
 .container
   = render "layouts/nav_user"
-  .col-lg-11
+  .span11
     %hr
       .row
-        .col-lg-6
+        .span6
           = image_tag "admin.jpg"
-        .col-lg-3{style: "margin-left:5%"}
+        .span3{style: "margin-left:5%"}
           %h4 Панель управления сайтом
           = form_tag auth_path do
             %hr

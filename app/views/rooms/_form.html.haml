@@ -1,4 +1,4 @@
-.col-lg-4
+.span4
   = form_for @room do |f|
     %div
       %p Название
@@ -15,7 +15,7 @@
       = link_to 'Назад', :back , class: "btn btn-danger", style: "margin-left:5%"
 
 
-.col-lg-6
+.span6
   %p Список студентов
   = form_tag current_page, :method => 'get', :id => "students_search", class: 'form-search' do
     = text_field_tag :search, params[:search], class: "input-medium search-query"
